@@ -19,10 +19,10 @@ Each Kniwwelino requires a power supply, for example a standard 5V power bank.
 The star-like shape displayed on the matrix:
 
 `
-&#35; &#35; &#35;
- &#35;&#35;&#35;
-&#35;&#35;&#35;&#35;&#35;
- &#35;&#35;&#35;
-&#35; &#35; &#35;
+# # # 
+ ### 
+##### 
+ ### 
+# # # 
 `
 
