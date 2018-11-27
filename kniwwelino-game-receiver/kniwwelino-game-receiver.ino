@@ -4,16 +4,13 @@ extern "C" {
 #include <espnow.h>
 }
 
-uint8_t r = 0;
-uint8_t msg = 0;
+uint8_t r = 0; // Message received flag
+uint8_t msg = 0; // Received message
 
 #define WIFI_CHANNEL 4
 
-uint8_t master1[] = {0x2C, 0x3A, 0xE8, 0x41, 0x26, 0x00};
-uint8_t master2[] = {0x2C, 0x3A, 0xE8, 0x41, 0x36, 0xEF};
-
-uint32_t countdown = 0;
-uint8_t t = 0;
+uint32_t countdown = 0; // Variable used to calculate time offset from countdown start
+uint8_t t = 0; // Game state (0 = countdown, 1 = waiting for players to press a button, 2 = game over, waiting for restart)
 
 void setup() {
   Kniwwelino.begin();
@@ -46,19 +43,19 @@ void loop() {
     Kniwwelino.MATRIXwrite(String(5 - ((millis() - countdown) / 1000)));
   }
   if (t == 1) {
-    uint8_t r = 255 * ((millis() / 100) % 3 == 0);
-    uint8_t g = 255 * ((millis() / 100) % 3 == 1);
-    uint8_t b = 255 * ((millis() / 100) % 3 == 2);
+    uint8_t r = 127 * ((millis() / 100) % 3 == 0);
+    uint8_t g = 127 * ((millis() / 100) % 3 == 1);
+    uint8_t b = 127 * ((millis() / 100) % 3 == 2);
     Kniwwelino.RGBsetColor(r, g, b);
   } else {
-    Kniwwelino.RGBsetColor(0, 0, 0);
+    Kniwwelino.RGBclear();
   }
   if (t == 2 && (Kniwwelino.BUTTONAclicked() || Kniwwelino.BUTTONBclicked())) {
     t = 0;
     countdown = millis();
   }
   if (r) {
-    Kniwwelino.RGBsetColor(0, 0, 0);
+    Kniwwelino.RGBclear();
     r = 0;
     if (msg == 1 && t == 1) {
       Kniwwelino.MATRIXwriteAndWait("Player 1 wins!");
