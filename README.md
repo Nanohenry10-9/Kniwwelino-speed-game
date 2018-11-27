@@ -12,15 +12,6 @@ It uses a protocol called [ESP-NOW](https://www.espressif.com/en/products/softwa
 
 When either the A or B button is pressed, if the Kniwwleino has not been assigned to be the main Kniwwelino, it will flash its LED blue for 10 milliseconds (just to indicate the user) and send its ID number as an unsigned byte to the main Kniwwelino. This way the main Kniwwelino knows which board's button was pressed first, and there is no need for bidirectional communication, as the only information being transmitted is _who_ pushed a button (not _when_ it was pushed).
 
-The main Kniwwelino itself will display a countdown from five, and when it reaches zero it will flash red, green and blue lights on its LED and dislay a star-like image (shown below) on the matrix. In this state it is waiting for incoming messages about button presses on the other boards. Once it receives one, it will display the text "Player # wins!", where the '#' is replaced with the number it received (i.e. the player's ID). After scrolling the text, the Kniwwelino will wait for either the A or B button to be pressed. If the user does so, the game will restart and the countdown will start again.
+The main Kniwwelino itself will display a countdown from five, and when it reaches zero it will flash red, green and blue lights on its LED and dislay a star-like image on the matrix. In this state it is waiting for incoming messages about button presses on the other boards. Once it receives one, it will display the text "Player # wins!", where the '#' is replaced with the number it received (i.e. the player's ID). After scrolling the text, the Kniwwelino will wait for either the A or B button to be pressed. If the user does so, the game will restart and the countdown will start again.
 
 Each Kniwwelino requires a power supply, for example a standard 5V power bank.
-
-The star-like shape displayed on the matrix:
-
-X X X<br>
- XXX<br>
-XXXXX<br>
- XXX<br>
-X X X<br>
-
