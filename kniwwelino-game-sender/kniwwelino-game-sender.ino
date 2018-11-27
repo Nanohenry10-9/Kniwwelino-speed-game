@@ -33,9 +33,11 @@ void loop() {
     esp_now_send(NULL, data, 1);
     Serial.println("Sent");
     Kniwwelino.RGBsetColor(0, 0, 255);
-    delay(100);
+    delay(10);
     Kniwwelino.RGBsetColor(0, 0, 0);
-    delay(900);
+    while (Kniwwelino.BUTTONAdown() || Kniwwelino.BUTTONBdown()) {
+      delay(1);
+    }
   }
   delay(1);
 }
