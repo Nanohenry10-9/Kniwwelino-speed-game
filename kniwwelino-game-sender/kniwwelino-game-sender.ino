@@ -8,7 +8,7 @@ extern "C" {
 
 uint8_t slave[] = {0xEC, 0xFA, 0xBC, 0x07, 0x14, 0xEC};
 
-uint8_t data[] = {(uint8_t)2}; // Change this per board
+uint8_t data[] = {(uint8_t)1}; // Change this per board (i.e. 1, 2, 3...)
 
 void setup() {
   Kniwwelino.begin();
