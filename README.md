@@ -14,4 +14,4 @@ When either the A or B button is pressed, if the Kniwwleino has not been assigne
 
 The main Kniwwelino itself will display a countdown from five, and when it reaches zero it will flash red, green and blue lights on its LED and display a star-like image on the matrix. In this state it is waiting for incoming messages about button presses on the other boards. Once it receives one, it will display the text "Player # wins!", where the '#' is replaced with the number it received (i.e. the player's ID). After scrolling the text, the Kniwwelino will wait for either the A or B button to be pressed. If the user does so, the game will restart and the countdown will start.
 
-Each Kniwwelino requires a power supply, for example a standard 5V power bank.
+Each Kniwwelino requires a power supply, for example a standard 5V power bank. The Kniwwelinos do __not__ require any extra components for this to work nor a Wi-FI connection.
